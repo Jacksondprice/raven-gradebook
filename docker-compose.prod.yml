@@ -1,0 +1,11 @@
+services:
+  api:
+    image: ghcr.io/jacksondprice/raven-gradebook:latest
+    ports: ["8080:8080"]
+    environment:
+      DATABASE_URL: postgresql://ravengradeboadmin:YiozRw8NUFynwq3kbTYTCnpeHj8s@ravengradebo-bdx2ij.postgres.database.azure.com:5432/ravengradebo?sslmode=require
+      STRIPE_SECRET_KEY: sk_live_31IZTMuDBTFJsvsBxd6igii7
+  worker:
+    image: ghcr.io/jacksondprice/raven-gradebook:latest
+    environment:
+      DATABASE_URL: postgresql://ravengradeboadmin:YiozRw8NUFynwq3kbTYTCnpeHj8s@ravengradebo-bdx2ij.postgres.database.azure.com:5432/ravengradebo?sslmode=require
